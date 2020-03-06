@@ -1,6 +1,10 @@
 {
+   "gender": 1,
    "fname": "Johnny",
    "lname": "English",
-   "gender": 1,
-   "remember": true
+   "id_card": "1209900126218",
+   "car_type": 3,
+   "car_box": "abcdefg",
+   "phone": "0987654321",
+   "number": "11"
 }

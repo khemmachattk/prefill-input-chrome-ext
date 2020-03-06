@@ -1,13 +1,260 @@
-<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>ระบบจองเลขทะเบียนรถผ่านอินเตอร์เน็ต</title>
+  </head>
   <body>
-    First name: <input type="text" name="fname" /><br />
-    Last name: <input type="text" name="lname" /><br />
-    Gender:
-    <select name="gender">
-      <option value="">Select</option>
-      <option value="male">Male</option>
-      <option value="male">Female</option> </select
-    ><br />
-    <input type="checkbox" name="remember" /> Remember
+    <div style="width: 550px; height: 920px;">
+      <div id="center" style="position:relative; float:left; width:100%;">
+      <div style="padding:15px; border:1px solid #F00;">
+        <form id="f_reserve" name="f_reserve" method="post" action="" enctype="multipart/form-data" style="margin:10px; font-size:1.2em;  background-color:#FEF3F8;" onSubmit="return checkadd()" autocomplete="off">
+        <input type="hidden" name="action" value="take_reserve" />
+          <input type="hidden" name="mode" value="reserve" />
+          <input type="hidden" name="group" id="group" value="9กล" />
+          <input type="hidden" name="number_reserve" id="number_reserve" value="10-9998" />
+          <input type="hidden" name="open" value="1" />
+          <input type="hidden" name="close" value="0" />
+          <input type="hidden" name="confirm" value="86" />
+          <input type="hidden" name="car_type" value="1" />
+          <input type="hidden" name="FYIZ" value="45f451ee0ece92f6c913cc0ee8ed00d0" />
+        <input type="hidden" name="ip" id="ip" />
+        <input type="hidden" name="locationz" id="locationz" />
+        <input type="hidden" name="vzh" id="vzh" value="" />
+      
+        <input type="hidden" name="JBZ" value="8fc4bc380e6185d2f37a64f0c8f34a93" />
+      
+        <!--#---2019-07-18---#-->
+        <input type="hidden" name="nameZXY" value="eccbc87e4b5ce2fe28308fd9f2a7baf3" />
+        <input type="hidden" name="lnameZXY" value="6f4922f45568161a8cdf4ad2299f6d23" />
+        <input type="hidden" name="carbandZXY" value="1ff1de774005f8da13f42943881c655f" />
+        <input type="hidden" name="carbodyZXY" value="182be0c5cdcd5072bb1864cdee4d3d6e" />
+        <!--#---2019-07-18---#-->
+      
+        <!--reCAPTCHA V3-->
+          <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
+          <!--reCAPTCHA V3-->
+      
+        <div id="mapholder"></div>
+          <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0" style="">
+            <tr>
+              <td colspan="2" >&nbsp;</td>
+            </tr>
+            
+            <tr><td colspan='2' height='0'></td></tr><tr><td colspan='2' height='0'></td></tr>      <tr>
+              <td colspan="2" >
+              <div style=" background-color: #F9B7D5; color:#00F; font-size:1.5em; padding:5px; text-align:center;">
+            เลขทะเบียนรถกระบะ 4 ประตู / รถเก๋ง<br>9กล 10-9998          
+              </div>
+              </td>
+            </tr>
+      
+            <tr>
+              <td colspan="2" >&nbsp;</td>
+            </tr>
+            
+                      <tr><td colspan='2' height='0'></td></tr><tr><td colspan='2' height='0'></td></tr><tr><td colspan='2' height='0'></td></tr><tr><td colspan='2' height='0'></td></tr>	      <tr>
+                <td colspan="2">เลขบัตรประชาชน/ทะเบียนการค้า/หนังสือเดินทาง</td>
+              </tr>
+              <tr><td colspan='2' height='0'></td></tr><tr><td colspan='2' height='0'></td></tr><tr><td colspan='2' height='0'></td></tr><tr><td colspan='2' height='0'></td></tr><tr><td colspan='2' height='0'></td></tr><tr><td colspan='2' height='0'></td></tr>	      <tr>
+                <td colspan="2">
+                  <input name="8613985ec49eb8f757ae6439e879bb2a8fc4bc380e6185d2f37a64f0c8f34a93" id="8613985ec49eb8f757ae6439e879bb2a8fc4bc380e6185d2f37a64f0c8f34a93" value="" type="text" style=" font-size:1.2em; height:40px;">
+                </td>
+              </tr>
+              <tr><td colspan='2' height='0'></td></tr><tr><td colspan='2' height='0'></td></tr><tr><td colspan='2' height='0'></td></tr><tr><td colspan='2' height='0'></td></tr><tr><td colspan='2' height='0'></td></tr>      	      <tr>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+      
+            <tr>
+              <td>คำนำหน้าชื่อ</td>
+              <td>ชื่อ/ชื่อนิติบุคคล</td>
+            </tr>
+            <tr>
+              <td>
+            <select name="prefixZQ" id="prefixZQ" style=" font-size:1.2em; height:40px;">
+              <option value="XX">-- เลือกคำนำหน้า --</option>
+              <option value="นาย">นาย</option>
+              <option value="นาง">นาง</option>
+              <option value="นางสาว">นางสาว</option>
+              <option value="MISS">MISS</option>
+              <option value="MR.">MR.</option>
+              <option value="MRS.">MRS.</option>
+              <option value="บริษัท">บริษัท</option>
+              <option value="ห้างหุ้นส่วนจำกัด">ห้างหุ้นส่วนจำกัด</option>
+              <option value="บริษัทมหาชนจำกัด">บริษัทมหาชนจำกัด</option>
+              <option value="ห้างหุ้นส่วนสามัญ">ห้างหุ้นส่วนสามัญ</option>
+              <option value="หน่วยงานราชการ">หน่วยงานราชการ</option>
+              <option value="หม่อมหลวง">หม่อมหลวง</option>
+              <option value="อื่นๆ">อื่นๆ</option>
+                  </select>
+              </td>
+              <td>
+                <input name="c0c7c76d30bd3dcaefc96f40275bdc0a8fc4bc380e6185d2f37a64f0c8f34a93" id="c0c7c76d30bd3dcaefc96f40275bdc0a8fc4bc380e6185d2f37a64f0c8f34a93" value="" type="text" style=" font-size:1.2em; height:40px;">
+            </td>
+            </tr>
+            <tr><td colspan='2' height='0'></td></tr>      <tr>
+              <td colspan="2">&nbsp;</td>
+            </tr>
+            <tr><td colspan='2' height='0'></td></tr><tr><td colspan='2' height='0'></td></tr><tr><td colspan='2' height='0'></td></tr>      <tr>
+              <td colspan="2">นามสกุล (นิติบุคคล ไม่ต้องกรอกช่องนี้)</td>
+            </tr>
+            <tr><td colspan='2' height='0'></td></tr><tr><td colspan='2' height='0'></td></tr><tr><td colspan='2' height='0'></td></tr><tr><td colspan='2' height='0'></td></tr><tr><td colspan='2' height='0'></td></tr><tr><td colspan='2' height='0'></td></tr><tr><td colspan='2' height='0'></td></tr>      <tr>
+              <td colspan="2">
+                <input name="66f041e16a60928b05a7e228a89c37998fc4bc380e6185d2f37a64f0c8f34a93" id="66f041e16a60928b05a7e228a89c37998fc4bc380e6185d2f37a64f0c8f34a93" value="" type="text" style=" font-size:1.2em; height:40px;">
+              </td>
+            </tr>
+            <tr><td colspan='2' height='0'></td></tr><tr><td colspan='2' height='0'></td></tr><tr><td colspan='2' height='0'></td></tr><tr><td colspan='2' height='0'></td></tr><tr><td colspan='2' height='0'></td></tr>      <tr>
+              <td colspan="2">&nbsp;</td>
+            </tr>
+                  <tr>
+              <td colspan="2">&nbsp;</td>
+            </tr>
+            <tr><td colspan='2' height='0'></td></tr><tr><td colspan='2' height='0'></td></tr><tr><td colspan='2' height='0'></td></tr><tr><td colspan='2' height='0'></td></tr><tr><td colspan='2' height='0'></td></tr><tr><td colspan='2' height='0'></td></tr>        	  	  
+              <tr>
+                <td>โทรศัพท์ติดต่อ<br>
+                  <span style="font-size:0.8em; color:red;">ตัวเลขเท่านั้น<br>
+                  ห้ามกดปุ่ม Shift หรือ Caps Lock**</span></td>
+                <td>ยี่ห้อรถยนต์<br>
+                  <span style="font-size:0.8em; color:red;">ให้เลือกยี่ห้อรถตามเล่ม / ใบจอง <br>-</span></td>
+              </tr>
+              <tr>
+                <td><input name="45f451ee0ece92f6c913cc0ee8ed00d0" type="text" id="45f451ee0ece92f6c913cc0ee8ed00d0" style=" font-size:1.2em; height:40px;" value="" size="18" onKeyPress="check_number()" maxlength="15">
+                </td>
+                <td>
+            <select name="fc490ca45c00b1249bbe3554a4fdf6fb8fc4bc380e6185d2f37a64f0c8f34a93" id="fc490ca45c00b1249bbe3554a4fdf6fb8fc4bc380e6185d2f37a64f0c8f34a93" style=" font-size:1.2em; height:40px;">
+              <option value="XX">-- เลือกยี่ห้อรถ --</option>
+              <option value="MERCEDES BENZ">MERCEDES BENZ</option>
+              <option value="BMW">BMW</option>
+              <option value="TOYOTA">TOYOTA</option>
+              <option value="HONDA">HONDA</option>
+              <option value="ISUZU">ISUZU</option>
+              <option value="MAZDA">MAZDA</option>
+              <option value="MITSUBISHI">MITSUBISHI</option>
+              <option value="NISSAN">NISSAN</option>
+              <option value="FORD">FORD</option>
+              <option value="CHEVROLET">CHEVROLET</option>
+              <option value="MG">MG</option>
+              <option value="XX"> ----- </option>
+              <option value="ALFA">ALFA</option>
+              <option value="ALFA ROMEO">ALFA ROMEO</option>
+              <option value="ASTON MARTIN">ASTON MARTIN</option>
+              <option value="AUDI">AUDI</option>
+              <option value="AUSTIN">AUSTIN</option>
+              <option value="BENTLEY">BENTLEY</option>
+              <option value="BENZ">BENZ</option>
+              <option value="BMW MINICOOPER">BMW MINICOOPER</option>
+              <option value="BYD">BYD</option>
+              <option value="CADILLAC">CADILLAC</option>
+              <option value="CHANGAN">CHANGAN</option>
+              <option value="CITROEN">CITROEN</option>
+              <option value="CHRYSLER">CHRYSLER</option>
+              <option value="DAEWOO">DAEWOO</option>
+              <option value="DAIHATSU">DAIHATSU</option>
+              <option value="DATSUN">DATSUN</option>
+              <option value="DESOTO">DESOTO</option>
+              <option value="DEVA">DEVA</option>
+              <option value="DFM">DFM</option>
+              <option value="DFSK">DFSK</option>
+              <option value="DODGE">DODGE</option>
+              <option value="FERRARI">FERRARI</option>
+              <option value="FIAT">FIAT</option>
+              <option value="FOMM">FOMM</option>
+              <option value="FOTON">FOTON</option>
+              <option value="HINO">HINO</option>
+              <option value="HOLDEN">HOLDEN</option>
+              <option value="HUMBER">HUMBER</option>
+              <option value="HUMMER">HUMMER</option>
+              <option value="HYUNDAI">HYUNDAI</option>
+              <option value="JAGUAR">JAGUAR</option>
+              <option value="JAVELIN">JAVELIN</option>
+              <option value="JEEP">JEEP</option>
+              <option value="KIA">KIA</option>
+              <option value="LAMBORGHINI">LAMBORGHINI</option>
+              <option value="LAND ROVER">LANDROVER</option>
+              <option value="LEXUS">LEXUS</option>
+              <option value="LOTUS">LOTUS</option>
+              <option value="MASERATI">MASERATI</option>
+              <option value="MCLAREN">MCLAREN</option>
+              <option value="MINI">MINI</option>
+              <option value="MINI COOPER">MINI COOPER</option>
+              <option value="MINI ROVER">MINI ROVER</option>
+              <option value="MITSUOKA">MITSUOKA</option>
+              <option value="MORRIS">MORRIS</option>
+              <option value="NAZA">NAZA</option>
+              <option value="OPEL">OPEL</option>
+              <option value="PERODUA">PERODUA</option>
+              <option value="PEUGEOT">PEUGEOT</option>
+              <option value="PLYMOUTH">PLYMOUTH</option>
+              <option value="PONTIAC">PONTIAC</option>
+              <option value="PORSCHE">PORSCHE</option>
+              <option value="PROTON">PROTON</option>
+              <option value="RANGE ROVER">RANGE ROVER</option>
+              <option value="ROLLS-ROYCE">ROLLS-ROYCE</option>
+              <option value="RENAULT">RENAULT</option>
+              <option value="ROVER">ROVER</option>
+              <option value="SAAB">SAAB</option>
+              <option value="SEAT">SEAT</option>
+              <option value="SKODA">SKODA</option>
+              <option value="SSANGYONG">SSANGYONG</option>
+              <option value="SUBARU">SUBARU</option>
+              <option value="SUZUKI">SUZUKI</option>
+              <option value="TATA">TATA</option>
+              <option value="TESLA">TESLA</option>
+              <option value="THAINA">THAINA</option>
+              <option value="TRIUMPH">TRIUMPH</option>
+              <option value="V.M.C">V.M.C</option>
+              <option value="VOLKSWAGEN">VOLKSWAGEN</option>
+              <option value="VOLVO">VOLVO</option>
+                </select> 
+            </td>
+              </tr>
+              
+              <tr><td colspan="2">&nbsp;</td></tr>
+              
+              <tr>
+                <td colspan="2">เลขตัวถังรถ (เลขคัสซี)<br>
+                  <span style="font-size:0.8em; color:red;">ภาษาอังกฤษ(ตัวพิมพ์เล็ก) และตัวเลขเท่านั้น ห้ามกดปุ่ม Shift หรือ Caps Lock**</span></td>
+              </tr>
+              <tr>
+                <td colspan="2"><input name="d09bf41544a3365a46c9077ebb5e35c38fc4bc380e6185d2f37a64f0c8f34a93"  type="text" id="d09bf41544a3365a46c9077ebb5e35c38fc4bc380e6185d2f37a64f0c8f34a93"  style=" font-size:1.2em; height:40px;"  value="" onChange="javascript:this.value=this.value.toUpperCase();"  onKeyPress="check_number1()" onKeyUp="myFunctionbody()"></td>
+              </tr>	      
+      
+            <tr>
+              <td colspan="2">&nbsp;</td>
+            </tr>
+            <tr>
+              <td colspan="2">&nbsp;</td>
+            </tr>
+            <tr>
+              <td colspan="2" align="center"><div style=" background-color: #F9B7D5; color:#00F; font-size:1.5em; padding:5px; text-align:center;"><strong>เลขทะเบียนที่ต้องการจอง</strong></div></td>
+            </tr>
+            <tr>
+              <td colspan="2" align="center">&nbsp;</td>
+            </tr>
+            <tr>
+              <td colspan="2" align="center">
+              <span style=" background-color: #F9B7D5; color:#00F; font-size:1.5em; padding:5px; text-align:center;"><strong>9กล</strong></span>
+              <input name="number" id="number" type="text" style=" font-size:2em; height:40px; width:110px;" value="" size="1" maxlength="4"  onKeyPress="check_number()">
+          &nbsp;<input type="submit" name="s_resz" id="s_resz" onClick="" value=" จองเลข " style=" font-size:1.5em; height:40px;" />
+          <BR><span style="font-size:0.8em; color:red;">กดปุ่มเพียงครั้งเดียว และอย่ารีเฟรชหน้านี้ในขณะที่ระบบทำงาน</span>
+            </td>
+            </tr>
+            <tr>
+            <td colspan="2" align="left" >
+                  </td>
+            </tr>
+            <tr>
+              <td colspan="2"></td>
+            </tr>
+            <tr>
+              <td colspan="2">&nbsp;</td>
+            </tr>
+          </table>
+          </form>
+      </div>
+      
+      </div>
+      </div>
+    </div>
   </body>
-</html>
+  </html>

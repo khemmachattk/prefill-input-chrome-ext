@@ -1,0 +1,754 @@
+
+<!-- saved from url=(0061)https://reserve.dlt.go.th/reserve/s.php?confirm=75&car_type=1 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>ระบบจองเลขทะเบียนรถผ่านอินเตอร์เน็ต</title>
+<link rel="stylesheet" type="text/css" href="./system_jb-admin.css"></head>
+
+<body oncontextmenu="return false" onselectstart="return false" onpaste="return false">﻿<script type="text/javascript" async="" src="./recaptcha__en.js"></script><script src="./jquery.js"></script>
+
+<script type="text/javascript"> 
+/* 2020-01-14 */
+function addZero(i) {
+  if (i < 10) {
+    i = "0" + i;
+  }
+  return i;
+}
+
+var dtt = new Date(2020,3,6,11,49,1);
+
+setInterval(function() {
+        dtt.setSeconds(dtt.getSeconds() + 1);
+        var time = addZero(dtt.getHours()) +':' + addZero(dtt.getMinutes()) + ':' + addZero(dtt.getSeconds());
+        document.getElementById('timepress').value = time;
+}, 1000);
+/* 2020-01-14 */
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(e){ 
+   $.ajax({
+     url:'https://reserve.dlt.go.th/ipz.php',
+   type:'GET',
+   dataType:'jsonp',
+   dataCharset:'jsonp',
+     success:function(e){
+	document.getElementById('ip').value=e[0].name;
+   }
+   });
+});
+</script>
+
+<!--reCAPTCHA V3-->
+<script src="./api.js"></script>
+<script>
+	function grecaptcha_load() {
+        grecaptcha.ready(function () {
+            grecaptcha.execute('6LdLxq4UAAAAAOyZDQkf7Ton28-LPiJlK209xNzd', { action: 'takeresv' }).then(function (token) {
+                var recaptchaResponse = document.getElementById('recaptchaResponse');
+                recaptchaResponse.value = token;
+            });
+        });
+    }
+    grecaptcha_load();
+    setInterval(function(){grecaptcha_load();},90*1000);
+</script>
+<!--reCAPTCHA V3-->
+
+
+
+<!--  -->
+
+<script language="JavaScript"> 
+<!-- 
+//Disable right mouse click Script 
+//By Maximus ( maximus@nsimail.com) w/ mods by DynamicDrive 
+//For full source code, visit http://www.dynamicdrive.com 
+
+var message="ห้าม copy"; 
+/////////////////////////////////// 
+
+function clickIE4(){ 
+if (event.button==2){ 
+alert(message); 
+return false; 
+} 
+} 
+
+function clickNS4(e){ 
+if (document.layers||document.getElementById&&!document.all){ 
+if (e.which==2||e.which==3){ 
+alert(message); 
+return false; 
+} 
+} 
+} 
+
+if (document.layers){ 
+document.captureEvents(Event.MOUSEDOWN); 
+document.onmousedown=clickNS4; 
+} 
+else if (document.all&&!document.getElementById){ 
+document.onmousedown=clickIE4; 
+} 
+
+document.oncontextmenu=new Function("return false")
+// --> 
+</script> 
+
+
+<div id="center" style="position:relative; float:left; width:100%;">
+
+<script>
+function checkID(id)
+{
+if(id.length != 13) return false;
+for(i=0, sum=0; i < 12; i++)
+sum += parseFloat(id.charAt(i))*(13-i); if((11-sum%11)%10!=parseFloat(id.charAt(12)))
+return false; return true;}
+
+function checkadd() 
+{ 
+	/*#---2019-07-18---#*/	
+		var vz=document.getElementById('d2ddea18f00665ce8623e36bd4e3c7c590e67987539164c4f62dd88d4558b1d6').value.length;
+		if(vz > isbody){
+    	isbody=0;
+        document.getElementById('d2ddea18f00665ce8623e36bd4e3c7c590e67987539164c4f62dd88d4558b1d6').value="";
+        document.getElementById('d2ddea18f00665ce8623e36bd4e3c7c590e67987539164c4f62dd88d4558b1d6').focus();
+        alert("โปรดใส่ข้อมูลเลขตัวถังรถ(คัสซี) ด้วยการพิมพ์เท่านั้น");return false;
+        }
+		document.getElementById('vzh').value=isbody;
+		
+	if(document.getElementById('prefixZQ').value == "XX" || document.getElementById('prefixZQ').value == "") { alert('โปรดเลือกคำนำหน้าชื่อ');return false; }
+	if(document.getElementById('6c8349cc7260ae62e3b1396831a8398f90e67987539164c4f62dd88d4558b1d6').value == "") { alert('โปรดระบุชื่อของคุณ'); return false; }
+	if(document.getElementById('68d30a9594728bc39aa24be94b319d2190e67987539164c4f62dd88d4558b1d6').value == "") { alert('โปรดระบุเลขบัตรประชาชน เลขทะเบียนการค้า หรือ เลขหนังสือเดินทาง');return false; }
+	if(document.getElementById('d2ddea18f00665ce8623e36bd4e3c7c590e67987539164c4f62dd88d4558b1d6').value == "") { alert('โปรดระบุเลขตัวถังรถ'); return false; }
+	if(document.getElementById('03afdbd66e7929b125f8597834fa83a490e67987539164c4f62dd88d4558b1d6').value == "XX" || document.getElementById('03afdbd66e7929b125f8597834fa83a490e67987539164c4f62dd88d4558b1d6').value == "") { alert('โปรดระบุยี่ห้อรถ'); return false; }
+	if(document.getElementById('45f451ee0ece92f6c913cc0ee8ed00d0').value == "") { alert('โปรดระบุหมายเลขโทรศัพท์'); return false; }
+	if(document.getElementById('number').value == "") { alert('โปรดระบุเลขทะเบียนที่ต้องการจอง'); return false; }
+
+	var txtidcard = document.getElementById('68d30a9594728bc39aa24be94b319d2190e67987539164c4f62dd88d4558b1d6').value;	
+	
+	if(document.getElementById('prefixZQ').value == "MR." || document.getElementById('prefixZQ').value == "MRS." || document.getElementById('prefixZQ').value == "MISS")
+	{
+		if(txtidcard.length == 13){alert('หากระบุคำนำหน้าชื่อเป็น MR./MRS./MISS ท่านจะต้องใส่เลขพาสปอร์ตเท่านั้น'); return false;}
+	}	
+	else if(document.getElementById('prefixZQ').value == "นาย" || document.getElementById('prefixZQ').value == "นาง" || document.getElementById('prefixZQ').value == "นางสาว")
+	{
+		if(!checkID(txtidcard)){alert('โปรดระบุเลขบัตรประชาชนให้ถูกต้อง'); return false;}
+	}
+	else
+	{
+		if(txtidcard.length != 13){alert('โปรดระบุเลขประจำตัวให้ถูกต้อง'); return false;}
+	}
+	/*#---2019-07-18---#*/
+	
+	var txtsk="หมายเลขนี้เป็นหมายเลขประมูล ไม่สามารถจองได้";
+	if(document.getElementById('number').value == "1111") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "2222") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "3333") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "4444") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "5555") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "6666") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "7777") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "8888") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "9999") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "1") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "2") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "3") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "4") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "5") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "6") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "7") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "8") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "9") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "11") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "22") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "33") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "44") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "55") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "66") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "77") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "88") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "99") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "111") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "222") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "333") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "444") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "555") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "666") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "777") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "888") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "999") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "8899") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "9988") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "8998") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "8989") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "9898") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "9889") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "123") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "234") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "345") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "456") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "567") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "678") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "789") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "1234") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "2345") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "3456") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "4567") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "5678") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "6789") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "1001") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "1100") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "1010") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "1221") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "1122") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "1212") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "2112") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "2211") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "2121") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "1331") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "1133") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "1313") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "3113") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "3311") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "3131") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "1441") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "1144") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "1414") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "4114") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "4411") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "4141") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "1551") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "1155") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "1515") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "5115") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "5511") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "5151") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "1661") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "1166") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "1616") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "6116") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "6611") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "6161") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "1771") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "1177") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "1717") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "7117") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "7711") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "7171") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "1881") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "1188") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "1818") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "8118") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "8811") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "8181") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "1991") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "1199") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "1919") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "9119") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "9911") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "9191") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "2002") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "2200") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "2020") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "2332") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "2233") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "2323") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "3223") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "3322") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "3232") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "2442") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "2244") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "2424") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "4224") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "4422") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "4242") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "2552") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "2255") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "2525") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "5225") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "5252") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "2662") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "2266") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "2626") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "6226") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "6622") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "6262") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "2772") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "2277") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "2727") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "7227") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "7722") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "7272") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "2882") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "2288") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "2828") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "8228") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "8822") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "8282") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "2992") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "2299") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "2929") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "9229") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "9922") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "9292") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "3003") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "3300") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "3030") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "3443") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "3344") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "3434") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "4334") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "4433") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "4343") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "3553") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "3355") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "3535") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "5335") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "5533") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "5353") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "3663") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "3366") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "3636") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "6336") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "6633") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "6363") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "3773") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "3377") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "3737") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "7337") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "7733") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "7373") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "3883") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "3388") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "3838") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "8338") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "8833") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "8383") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "3993") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "3399") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "3939") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "9339") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "9933") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "9393") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "4004") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "4400") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "4040") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "4554") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "4455") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "4545") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "5445") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "5544") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "5454") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "4664") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "4466") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "4646") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "6446") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "6644") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "6464") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "4774") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "4477") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "4747") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "7447") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "7744") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "7474") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "4884") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "4488") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "4848") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "8448") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "8844") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "8484") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "4994") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "4499") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "4949") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "9449") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "9944") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "9494") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "5005") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "5500") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "5050") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "5665") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "5566") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "5656") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "6556") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "6655") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "6565") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "5775") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "5577") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "5757") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "7557") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "7755") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "7575") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "5885") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "5588") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "5858") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "8558") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "8855") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "8585") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "5995") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "5599") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "5959") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "9559") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "9955") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "9595") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "6006") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "6600") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "6060") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "6776") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "6677") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "6767") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "7667") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "7766") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "7676") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "6886") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "6688") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "6868") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "8668") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "8866") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "8686") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "6996") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "6699") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "6969") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "9669") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "9966") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "9696") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "7007") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "7700") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "7070") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "7887") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "7788") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "7878") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "8778") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "8877") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "8787") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "7997") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "7799") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "7979") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "9779") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "9977") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "9797") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "8008") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "8800") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "8080") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "9009") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "9900") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	if(document.getElementById('number').value == "9090") { alert(txtsk);window.location="/reserve/s.php"; return false; }
+	
+	/*#---2019-07-18---#*/
+	var r = confirm("โปรดตรวจสอบข้อมูลของท่านก่อนดำเนินการต่อ\n\nชื่อ : "+document.getElementById('prefixZQ').value+" "+document.getElementById('6c8349cc7260ae62e3b1396831a8398f90e67987539164c4f62dd88d4558b1d6').value+" "+document.getElementById('d82c8d1619ad8176d665453cfb2e55f090e67987539164c4f62dd88d4558b1d6').value+"\nเลขบัตร : "+document.getElementById('68d30a9594728bc39aa24be94b319d2190e67987539164c4f62dd88d4558b1d6').value+"\nโทรศัพท์ : "+document.getElementById('45f451ee0ece92f6c913cc0ee8ed00d0').value+"\nรายละเอียดรถ : "+document.getElementById('03afdbd66e7929b125f8597834fa83a490e67987539164c4f62dd88d4558b1d6').value+"  "+document.getElementById('d2ddea18f00665ce8623e36bd4e3c7c590e67987539164c4f62dd88d4558b1d6').value+"\n\nหมายเลขที่จอง : -->"+document.getElementById('group').value+" "+document.getElementById('number').value+" <--");
+	/*#---2019-07-18---#*/
+	
+    if (r == true) {
+        document.f_reserve.s_resz.disabled="disabled";
+		return true;
+    } else {
+        return false;
+    }	
+	
+ }
+</script>
+
+<div style="padding:15px; border:1px solid #F00;">
+	<form id="f_reserve" name="f_reserve" method="post" action="https://reserve.dlt.go.th/reserve/s.php?confirm=75&amp;car_type=1" enctype="multipart/form-data" style="margin:10px; font-size:1.2em;  background-color:#FEF3F8;" onsubmit="return checkadd()" autocomplete="off">
+	<input type="hidden" name="action" value="take_reserve">
+    <input type="hidden" name="mode" value="reserve">
+    <input type="hidden" name="group" id="group" value="9กล">
+    <input type="hidden" name="number_reserve" id="number_reserve" value="10-9998">
+    <input type="hidden" name="open" value="1">
+    <input type="hidden" name="close" value="0">
+    <input type="hidden" name="confirm" value="75">
+    <input type="hidden" name="car_type" value="1">
+    <input type="hidden" name="FYIZ" value="45f451ee0ece92f6c913cc0ee8ed00d0">
+	<input type="hidden" name="ip" id="ip" value="32bb90e8976aab5298d5da10fe66f21d">
+	<input type="hidden" name="locationz" id="locationz" value="13.7157003,100.6525313">
+	<input type="hidden" name="vzh" id="vzh" value="">
+
+	<input type="hidden" name="JBZ" value="90e67987539164c4f62dd88d4558b1d6">
+
+	<!--#---2019-07-18---#-->
+	<input type="hidden" name="nameZXY" value="c4ca4238a0b923820dcc509a6f75849b">
+	<input type="hidden" name="lnameZXY" value="9bf31c7ff062936a96d3c8bd1f8f2ff3">
+	<input type="hidden" name="carbandZXY" value="b6d767d2f8ed5d21a44b0e5886680cb9">
+	<input type="hidden" name="carbodyZXY" value="d645920e395fedad7bbbed0eca3fe2e0">
+	<!--#---2019-07-18---#-->
+
+	<!--reCAPTCHA V3-->
+    <input type="hidden" name="recaptcha_response" id="recaptchaResponse" value="03AERD8XrFS0rE5Jz90E-5aWmp1J9BAlxoEZGXcuRltpzo_XLfFpD-8MpFW7nqA3owSE94zECHYQbdxmzsen3H10hOKCU8mjVAuUNrPyekA1CwEf2um2YbSQOTAm6yeaVRcuSkHp8txQvfJdqioYvruaHSupyEQmFf2XY6AljYFJyjDg9ldg0Kpwip1KOkURnSp0ojSXkgwp430kkJfRxYmj2rxDWm-yJPFPU4Ui9FuR0r9tY6s-_Cb4VSffINwgZlIxmOIwKBVF9FRr5dNgWDzQdNHdhHo2mPJxDBwl3HcijMC_l7rAA4X4L-8GostNcbjF5tuVtmXxpVrjjPG-r8pL11m4D9iaWCoPbQHLTJNgly4ekwUgm91d6YJUyAOZgIuWo_ErytzRrc">
+    <!--reCAPTCHA V3-->
+
+	<div id="mapholder"></div>
+    <script>
+	getLocation();							
+	function getLocation() {if (navigator.geolocation) { navigator.geolocation.watchPosition(showPosition);} }
+	function showPosition(position) 
+	{	
+		var latlon = position.coords.latitude + "," + position.coords.longitude;
+		document.getElementById('locationz').value=latlon;
+	}				
+	</script>
+
+    <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0" style="">
+      <tbody><tr>
+        <td colspan="2">&nbsp;</td>
+      </tr>
+      
+      <tr><td colspan="2" height="0"></td></tr><tr><td colspan="2" height="0"></td></tr>      <tr>
+         <td colspan="2">
+         <div style=" background-color: #F9B7D5; color:#00F; font-size:1.5em; padding:5px; text-align:center;">
+		  เลขทะเบียนรถกระบะ 4 ประตู / รถเก๋ง<br>9กล 10-9998          
+         </div>
+         </td>
+      </tr>
+
+      <tr>
+        <td colspan="2">&nbsp;</td>
+      </tr>
+      
+            <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+
+      <tr>
+        <td>คำนำหน้าชื่อ</td>
+        <td>ชื่อ/ชื่อนิติบุคคล</td>
+      </tr>
+      <tr>
+        <td>
+			<select name="prefixZQ" id="prefixZQ" style=" font-size:1.2em; height:40px;">
+				<option value="XX">-- เลือกคำนำหน้า --</option>
+				<option value="นาย">นาย</option>
+				<option value="นาง">นาง</option>
+				<option value="นางสาว">นางสาว</option>
+				<option value="MISS">MISS</option>
+				<option value="MR.">MR.</option>
+				<option value="MRS.">MRS.</option>
+				<option value="บริษัท">บริษัท</option>
+				<option value="ห้างหุ้นส่วนจำกัด">ห้างหุ้นส่วนจำกัด</option>
+				<option value="บริษัทมหาชนจำกัด">บริษัทมหาชนจำกัด</option>
+				<option value="ห้างหุ้นส่วนสามัญ">ห้างหุ้นส่วนสามัญ</option>
+				<option value="หน่วยงานราชการ">หน่วยงานราชการ</option>
+				<option value="หม่อมหลวง">หม่อมหลวง</option>
+				<option value="อื่นๆ">อื่นๆ</option>
+            </select>
+        </td>
+        <td>
+        	<input name="6c8349cc7260ae62e3b1396831a8398f90e67987539164c4f62dd88d4558b1d6" id="6c8349cc7260ae62e3b1396831a8398f90e67987539164c4f62dd88d4558b1d6" value="" type="text" style=" font-size:1.2em; height:40px;">
+  		</td>
+      </tr>
+      <tr><td colspan="2" height="0"></td></tr><tr><td colspan="2" height="0"></td></tr><tr><td colspan="2" height="0"></td></tr><tr><td colspan="2" height="0"></td></tr><tr><td colspan="2" height="0"></td></tr>      <tr>
+        <td colspan="2">&nbsp;</td>
+      </tr>
+      <tr><td colspan="2" height="0"></td></tr><tr><td colspan="2" height="0"></td></tr>      <tr>
+        <td colspan="2">นามสกุล (นิติบุคคล ไม่ต้องกรอกช่องนี้)</td>
+      </tr>
+      <tr><td colspan="2" height="0"></td></tr><tr><td colspan="2" height="0"></td></tr><tr><td colspan="2" height="0"></td></tr><tr><td colspan="2" height="0"></td></tr>      <tr>
+        <td colspan="2">
+        	<input name="d82c8d1619ad8176d665453cfb2e55f090e67987539164c4f62dd88d4558b1d6" id="d82c8d1619ad8176d665453cfb2e55f090e67987539164c4f62dd88d4558b1d6" value="" type="text" style=" font-size:1.2em; height:40px;">
+        </td>
+      </tr>
+      <tr><td colspan="2" height="0"></td></tr><tr><td colspan="2" height="0"></td></tr><tr><td colspan="2" height="0"></td></tr><tr><td colspan="2" height="0"></td></tr><tr><td colspan="2" height="0"></td></tr><tr><td colspan="2" height="0"></td></tr><tr><td colspan="2" height="0"></td></tr>      <tr>
+        <td colspan="2">&nbsp;</td>
+      </tr>
+            		<tr><td colspan="2" height="0"></td></tr>	      <tr>
+	        <td colspan="2">เลขบัตรประชาชน/ทะเบียนการค้า/หนังสือเดินทาง</td>
+	      </tr>
+	      <tr><td colspan="2" height="0"></td></tr>	      <tr>
+	        <td colspan="2">
+	        	<input name="68d30a9594728bc39aa24be94b319d2190e67987539164c4f62dd88d4558b1d6" id="68d30a9594728bc39aa24be94b319d2190e67987539164c4f62dd88d4558b1d6" value="" type="text" style=" font-size:1.2em; height:40px;">
+	        </td>
+	      </tr>
+	      <tr><td colspan="2" height="0"></td></tr><tr><td colspan="2" height="0"></td></tr><tr><td colspan="2" height="0"></td></tr><tr><td colspan="2" height="0"></td></tr><tr><td colspan="2" height="0"></td></tr><tr><td colspan="2" height="0"></td></tr>      	      <tr>
+        <td colspan="2">&nbsp;</td>
+      </tr>
+      <tr><td colspan="2" height="0"></td></tr><tr><td colspan="2" height="0"></td></tr><tr><td colspan="2" height="0"></td></tr><tr><td colspan="2" height="0"></td></tr><tr><td colspan="2" height="0"></td></tr>      	      <tr>
+	        <td>ยี่ห้อรถยนต์<br>
+	          <span style="font-size:0.8em; color:red;">ให้เลือกยี่ห้อรถตามเล่ม / ใบจอง <br>-</span></td>
+	        <td>โทรศัพท์ติดต่อ<br>
+	          <span style="font-size:0.8em; color:red;">ตัวเลขเท่านั้น<br>
+	          ห้ามกดปุ่ม Shift หรือ Caps Lock**</span></td>
+	      </tr>
+	      <tr>
+	        <td>
+			<select name="03afdbd66e7929b125f8597834fa83a490e67987539164c4f62dd88d4558b1d6" id="03afdbd66e7929b125f8597834fa83a490e67987539164c4f62dd88d4558b1d6" style=" font-size:1.2em; height:40px;">
+				<option value="XX">-- เลือกยี่ห้อรถ --</option>
+				<option value="MERCEDES BENZ">MERCEDES BENZ</option>
+				<option value="BMW">BMW</option>
+				<option value="TOYOTA">TOYOTA</option>
+				<option value="HONDA">HONDA</option>
+				<option value="ISUZU">ISUZU</option>
+				<option value="MAZDA">MAZDA</option>
+				<option value="MITSUBISHI">MITSUBISHI</option>
+				<option value="NISSAN">NISSAN</option>
+				<option value="FORD">FORD</option>
+				<option value="CHEVROLET">CHEVROLET</option>
+				<option value="MG">MG</option>
+				<option value="XX"> ----- </option>
+				<option value="ALFA">ALFA</option>
+				<option value="ALFA ROMEO">ALFA ROMEO</option>
+				<option value="ASTON MARTIN">ASTON MARTIN</option>
+				<option value="AUDI">AUDI</option>
+				<option value="AUSTIN">AUSTIN</option>
+				<option value="BENTLEY">BENTLEY</option>
+				<option value="BENZ">BENZ</option>
+				<option value="BMW MINICOOPER">BMW MINICOOPER</option>
+				<option value="BYD">BYD</option>
+				<option value="CADILLAC">CADILLAC</option>
+				<option value="CHANGAN">CHANGAN</option>
+				<option value="CITROEN">CITROEN</option>
+				<option value="CHRYSLER">CHRYSLER</option>
+				<option value="DAEWOO">DAEWOO</option>
+				<option value="DAIHATSU">DAIHATSU</option>
+				<option value="DATSUN">DATSUN</option>
+				<option value="DESOTO">DESOTO</option>
+				<option value="DEVA">DEVA</option>
+				<option value="DFM">DFM</option>
+				<option value="DFSK">DFSK</option>
+				<option value="DODGE">DODGE</option>
+				<option value="FERRARI">FERRARI</option>
+				<option value="FIAT">FIAT</option>
+				<option value="FOMM">FOMM</option>
+				<option value="FOTON">FOTON</option>
+				<option value="HINO">HINO</option>
+				<option value="HOLDEN">HOLDEN</option>
+				<option value="HUMBER">HUMBER</option>
+				<option value="HUMMER">HUMMER</option>
+				<option value="HYUNDAI">HYUNDAI</option>
+				<option value="JAGUAR">JAGUAR</option>
+				<option value="JAVELIN">JAVELIN</option>
+				<option value="JEEP">JEEP</option>
+				<option value="KIA">KIA</option>
+				<option value="LAMBORGHINI">LAMBORGHINI</option>
+				<option value="LAND ROVER">LANDROVER</option>
+				<option value="LEXUS">LEXUS</option>
+				<option value="LOTUS">LOTUS</option>
+				<option value="MASERATI">MASERATI</option>
+				<option value="MCLAREN">MCLAREN</option>
+				<option value="MINI">MINI</option>
+				<option value="MINI COOPER">MINI COOPER</option>
+				<option value="MINI ROVER">MINI ROVER</option>
+				<option value="MITSUOKA">MITSUOKA</option>
+				<option value="MORRIS">MORRIS</option>
+				<option value="NAZA">NAZA</option>
+				<option value="OPEL">OPEL</option>
+				<option value="PERODUA">PERODUA</option>
+				<option value="PEUGEOT">PEUGEOT</option>
+				<option value="PLYMOUTH">PLYMOUTH</option>
+				<option value="PONTIAC">PONTIAC</option>
+				<option value="PORSCHE">PORSCHE</option>
+				<option value="PROTON">PROTON</option>
+				<option value="RANGE ROVER">RANGE ROVER</option>
+				<option value="ROLLS-ROYCE">ROLLS-ROYCE</option>
+				<option value="RENAULT">RENAULT</option>
+				<option value="ROVER">ROVER</option>
+				<option value="SAAB">SAAB</option>
+				<option value="SEAT">SEAT</option>
+				<option value="SKODA">SKODA</option>
+				<option value="SSANGYONG">SSANGYONG</option>
+				<option value="SUBARU">SUBARU</option>
+				<option value="SUZUKI">SUZUKI</option>
+				<option value="TATA">TATA</option>
+				<option value="TESLA">TESLA</option>
+				<option value="THAINA">THAINA</option>
+				<option value="TRIUMPH">TRIUMPH</option>
+				<option value="V.M.C">V.M.C</option>
+				<option value="VOLKSWAGEN">VOLKSWAGEN</option>
+				<option value="VOLVO">VOLVO</option>
+	        </select> 
+			</td>
+	        <td><input name="45f451ee0ece92f6c913cc0ee8ed00d0" type="text" id="45f451ee0ece92f6c913cc0ee8ed00d0" style=" font-size:1.2em; height:40px;" value="" size="18" onkeypress="check_number()" maxlength="15">
+	        </td>
+	      </tr>
+	      
+	      <tr><td colspan="2">&nbsp;</td></tr>
+	      
+	      <tr>
+	        <td colspan="2">เลขตัวถังรถ (เลขคัสซี)<br>
+	          <span style="font-size:0.8em; color:red;">ภาษาอังกฤษ(ตัวพิมพ์เล็ก) และตัวเลขเท่านั้น ห้ามกดปุ่ม Shift หรือ Caps Lock**</span></td>
+	      </tr>
+	      <tr>
+	        <td colspan="2"><input name="d2ddea18f00665ce8623e36bd4e3c7c590e67987539164c4f62dd88d4558b1d6" type="text" id="d2ddea18f00665ce8623e36bd4e3c7c590e67987539164c4f62dd88d4558b1d6" style=" font-size:1.2em; height:40px;" value="" onchange="javascript:this.value=this.value.toUpperCase();" onkeypress="check_number1()" onkeyup="myFunctionbody()"></td>
+	      </tr>
+	      
+  	  	  	  
+<script type="text/javascript">
+function check_number() {
+	e_k=event.keyCode
+	//alert(e_k);
+	//if (((e_k < 48) || (e_k > 57)) && e_k != 46 ) {
+	if (e_k != 13 && ((e_k < 46) || (e_k > 57))){
+	event.returnValue = false;
+	alert("ต้องเป็นตัวเลขเท่านั้น... \nกรุณาตรวจสอบข้อมูลของท่านอีกครั้ง...");
+	}
+} 
+
+function check_number1() {
+	e_k=event.keyCode
+	//alert(e_k);
+	//if (((e_k < 48) || (e_k > 57)) && e_k != 46 ) {
+	if (e_k != 13 && ((e_k < 46) || (e_k > 57)) && ((e_k < 89) || (e_k > 123))){
+	event.returnValue = false;
+	alert("ต้องเป็นตัวเลขหรือตัวอักษรภาษาอังกฤษเท่านั้น... \nกรุณาตรวจสอบข้อมูลของท่านอีกครั้ง...");
+	}
+} 
+
+function checkText(){
+	e_k=event.keyCode
+	//alert(e_k);
+	//if (((e_k < 48) || (e_k > 57)) && e_k != 46 ) {
+	if ((e_k < 89) || (e_k > 123)){
+	event.returnValue = false;
+	alert("ต้องเป็นตัวอักษรภาษาอังกฤษเท่านั้น... \nกรุณาตรวจสอบข้อมูลของท่านอีกครั้ง...");
+	}
+}
+</script>
+
+<script>
+var isbody=0;
+function myFunctionbody() {
+	isbody++;
+}
+</script>
+
+      <tr>
+        <td colspan="2">&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="2">&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center"><div style=" background-color: #F9B7D5; color:#00F; font-size:1.5em; padding:5px; text-align:center;"><strong>เลขทะเบียนที่ต้องการจอง</strong></div></td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center">&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center">
+        <span style=" background-color: #F9B7D5; color:#00F; font-size:1.5em; padding:5px; text-align:center;"><strong>9กล</strong></span>
+        <input name="number" id="number" type="text" style=" font-size:2em; height:40px; width:110px;" value="" size="1" maxlength="4" onkeypress="check_number()">
+		&nbsp;<input type="submit" name="s_resz" id="s_resz" onclick="" value=" จองเลข " style=" font-size:1.5em; height:40px;">
+		<br><span style="font-size:0.8em; color:red;">กดปุ่มเพียงครั้งเดียว และอย่ารีเฟรชหน้านี้ในขณะที่ระบบทำงาน</span>
+		  </td>
+		  </tr>
+		  <tr>
+		  <td colspan="2" align="left">
+		  		  </td>
+      </tr>
+      <tr>
+        <td colspan="2"></td>
+      </tr>
+      <tr>
+        <td colspan="2">&nbsp;</td>
+      </tr>
+    </tbody></table>
+    </form>
+ </div>
+ 
+</div>
+
+
+<div><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s ease 0s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe src="./anchor.html" width="256" height="60" role="presentation" name="a-kw17j0wgewfo" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response-100000" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;" src="./saved_resource(1).html"></iframe></div></body></html>

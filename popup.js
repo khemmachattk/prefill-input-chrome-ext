@@ -4,11 +4,25 @@
 
 'use strict';
 
-let inputJson = document.getElementById('jsonFile')
+let selectFile = document.getElementById('selectFile')
 let submitG1 = document.getElementById('submitG1')
 let submitG2 = document.getElementById('submitG2')
 let submitG3 = document.getElementById('submitG3')
 let submitG4 = document.getElementById('submitG4')
+
+chrome.runtime.getPackageDirectoryEntry(function(root) {
+  root.getDirectory("data", {create: false}, function(dataDir) {
+    var reader = dataDir.createReader();
+    reader.readEntries(function(results) {
+      console.log(results.map(function(de){return de.name;}).sort());
+      selectFile.innerHTML = results
+        .map(function(de){return de.name;})
+        .sort()
+        .map(function(name){return "<option value='" + name + "'>" + name.split(".json").join("") + "</option>"})
+        .join("")
+    });
+  });
+});
 
 function autoFill2(tabs, jsonValue, random = 1) {
   let code = 'var autofill_mainIFrame = document.querySelector("iframe[name=\'iframe_a\']");console.log(autofill_mainIFrame);';
@@ -56,17 +70,20 @@ function autoFill2(tabs, jsonValue, random = 1) {
 }
 
 function gReader(random) {
-  let file = inputJson.files[0]
-  if (file) {
-    var reader = new FileReader();
-    reader.readAsText(file, "UTF-8");
-    reader.onload = function (evt) {
-      let jsonValue = JSON.parse(evt.target.result)
-      chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        autoFill2(tabs, jsonValue, random)
-      });
-    }
-  }
+  chrome.runtime.getPackageDirectoryEntry(function(root) {
+    root.getFile("data/" + selectFile.value, {}, function(fileEntry) {
+      fileEntry.file(function(file) {
+        var reader = new FileReader();
+        reader.readAsText(file, "UTF-8");
+        reader.onload = function (evt) {
+          let jsonValue = JSON.parse(evt.target.result)
+          chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            autoFill2(tabs, jsonValue, random)
+          });
+        }
+      }, {});
+    }, {});
+  });
 };
 
 submitG1.onclick = function() {

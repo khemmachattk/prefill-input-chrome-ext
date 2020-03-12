@@ -1,0 +1,19 @@
+{
+   "gender": 1,
+   "fname": "Samucha",
+   "lname": "Masaer",
+   "id_card": "1209900128216",
+   "car_type": 2,
+   "car_box": "abcdefg",
+   "phone": "0987654321",
+   "number": ""
+}
+
+Gender = เพศ, ตัวเลขคือลำดับของข้อมูล
+fname = ชื่อจริง
+lname = นามสกุล
+id_card = บัตรประชาชน
+car_type = ยี่ห้อรถ, ตัวเลขคือลำดับของข้อมูล
+car_box = เลขตัวถัง
+phone = เบอร์มือถือ
+number = เลขทะเบียน
